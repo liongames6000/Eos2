@@ -82,7 +82,7 @@ public class SourceCode extends DefaultStyledDocument
 	}
 	public void loadProgram(File file) throws IOException {
 		BufferedReader br;
-		br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "Utf-8"));
+		br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "ISO-8859-1"));
 		StringBuilder src = new StringBuilder();
 		while (br.ready()) {
 			src.append(br.readLine());
@@ -105,7 +105,7 @@ public class SourceCode extends DefaultStyledDocument
 		try {
 			String text = this.getText(0, getLength());
 			save = new FileOutputStream(file);
-			try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(save, "Utf-8"))) {
+			try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(save, "ISO-8859-1"))) {
 				bw.append(text);
 			}
 			path = file.getParent();
